@@ -2,7 +2,7 @@
 
 ## 0.2.1 - 0.2.6
 
-- Now runs as HomeAssistant add on
+- Now runs as Home Assistant add-on
 - Changed initialization of logging and added some logging
 
 ## 0.2.0
