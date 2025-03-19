@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.2.1 - 0.2.6
+## 0.3.0
 
 - Now runs as Home Assistant add-on
 - Changed initialization of logging and added some logging
