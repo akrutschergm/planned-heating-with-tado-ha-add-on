@@ -1,0 +1,22 @@
+churchtools:
+  url: "https://vg-sh.church.tools"
+  username: "heizung@gemeinschaft-kaltenkirchen.de"
+  password: "MKQ9cjt5aqf.zav-ruw"
+
+tado:
+  username: "andreas@krutscher.de"
+  password: "G3V@924$rJeDf5A"
+
+heating:
+  cold: 17.0
+  warm: 21.0
+
+assignments:
+  - tadozone: "Büro"
+    earlystart: "00:30:00"
+    resources:
+      #- "KAKI großer Saal"
+      - "KAKI kleiner Saal"
+    #- "KAKI Küche"
+    #- "KAKI Kinderstunde (Keller)"
+    #- "KAKI Teenkreis (Keller)"

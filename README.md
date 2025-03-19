@@ -1,1 +1,1 @@
-# PlannedHeating
+# Planned Heating with Tado°
