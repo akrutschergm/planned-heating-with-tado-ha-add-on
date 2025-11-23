@@ -3,10 +3,6 @@ churchtools:
   username: "heizung@gemeinschaft-kaltenkirchen.de"
   password: "MKQ9cjt5aqf.zav-ruw"
 
-tado:
-  username: "andreas@krutscher.de"
-  password: "G3V@924$rJeDf5A"
-
 heating:
   cold: 17.0
   warm: 21.0
