@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "./src/main.py",
             "console": "integratedTerminal",
-            "args": ["-c", "./config/home.yaml", "-l", "./log/home.log", "--log-level", "INFO"]
+            "args": ["-c", "./config/home.yaml", "-l", "./log/home.log", "--log-level", "DEBUG"]
         }
     ]
 }

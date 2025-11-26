@@ -60,7 +60,9 @@ class ResourceBookingsRetriever:
         # query ChurchTools for resources
         if not self.cached_resources:
             self.logger.debug('Getting resources from masterdata')
-            _, self.cached_resources = self.ct.resources.masterdata()
+            resource_types, self.cached_resources = self.ct.resources.masterdata()
+            self.logger.debug('resource types: %s', resource_types)
+            self.logger.debug('resources: %s', self.cached_resources)
 
         resource_names_and_ids = {}
         for name in resource_names:

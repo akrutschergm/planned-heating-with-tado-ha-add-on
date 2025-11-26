@@ -69,7 +69,7 @@ class TadoAdapter:
         return tado
 
     def _get_zone_ids(self) -> dict[str: int]:
-        self.logger.debug('Gettings zones')
+        self.logger.debug('Getting zones')
 
         zones = self.tado.get_zones()
         self.logger.debug('Tado zones: %s', zones)
