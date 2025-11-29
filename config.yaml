@@ -1,7 +1,7 @@
 ---
 name: "Planned heating with Tado°"
 description: "Continuously sets tado° heating shedules according to ChurchTools resource bookings."
-version: "0.5.0"
+version: "0.5.5"
 slug: "planned_heating"
 init: false
 arch:
@@ -12,43 +12,31 @@ arch:
   - i386
 options:
   polling_minutes: 15
-  schedules:
-    - name: Workdays
-      start: "07:00:00"
-      end: "18:00:00"
-      days_of_week: "Mon-Thu,Fri"
-  ical_calendars:
-    - name: null
-      source: null
-  churchtools:
-    url: null
-    username: null
-    password: null
+  schedules: []
+  ical_calendars: []
+  churchtools: {}
   heating:
-    cold: 17.0
-    warm: null
+    cold: 0
+    warm: 20
     earlystart: "00:30:00"
   assignments:
-    - tadozone: HomeOffice
-      cold: null
-      warm: 20.0
-      earlystart: null
+    - tadozone: "Meting Room"
       calendar_names:
-        - Workdays
+        - "Meting Room Bookings"
 schema:
-  polling_minutes: "int(1,1440)?"
+  polling_minutes: "int(1,1440)"
   schedules:
-    - name: str
+    - name: str?
       start: "match(^([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$)?"
       end: "match(^([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$)?"
       days_of_week: "match(^((Mon|Tue|Wed|Thu|Fri|Sat|Sun)(-(Mon|Tue|Wed|Thu|Fri|Sat|Sun))?(,(Mon|Tue|Wed|Thu|Fri|Sat|Sun)(-(Mon|Tue|Wed|Thu|Fri|Sat|Sun))?)*)$)?"
   ical_calendars:
-    - name: str
-      source: url
+    - name: str?
+      source: url?
   churchtools:
-    url: url
-    username: email
-    password: password
+    url: url?
+    username: email?
+    password: password?
   heating:
     cold: "float(0.0,25.0)?"
     warm: "float(0.0,25.0)?"

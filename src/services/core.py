@@ -85,13 +85,24 @@ class Worker:
                     .generate_events(from_date, to_date)
 
         having_updates = False
+
+        # retrieve events from iCal calendars
         if self.settings.ical_calendars:
-            # retrieve events from iCal calendars
             all_calendar_events, calendars_having_updates = \
                 ICalRetriever(self.settings.ical_calendars) \
                     .retrieve_events(from_date, to_date)
-            having_updates = calendars_having_updates
+            if calendars_having_updates:
+                having_updates = calendars_having_updates
             all_events.events.update(all_calendar_events.events)
+
+        # retrieve bookings from ChurchTools resources
+        if self.settings.churchtools and self.settings.churchtools.url:
+            all_resources_events, resources_having_updates = \
+                adapter.churchtools.ResourceBookingsRetriever(self.settings.churchtools) \
+                    .retrieve_events_of_all_resources(assigned_resource_names, from_date, to_date)
+            if calendars_having_updates:
+                having_updates = calendars_having_updates
+            all_events.events.update(all_resources_events.events)
 
         if message.full_update:
             self.logger.info('Performing a full update of all Tado zones.')
