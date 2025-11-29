@@ -11,22 +11,38 @@ arch:
   - armv7
   - i386
 options:
+  schedules:
+    - name: Workdays
+      start: "07:00:00"
+      end: "18:00:00"
+      days_of_week: "Mon-Thu,Fri"
+  ical_calendars:
+    - name: null
+      source: null
   churchtools:
     url: null
     username: null
     password: null
   heating:
-    cold: 0.0
+    cold: 17.0
     warm: null
-    earlystart: "02:30:00"
+    earlystart: "00:30:00"
   assignments:
-    - tadozone: null
+    - tadozone: HomeOffice
       cold: null
       warm: 20.0
       earlystart: null
-      resources:
-        - null
+      calendar_names:
+        - Workdays
 schema:
+  schedules:
+    - name: str
+      start: "match(^([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$)?"
+      end: "match(^([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$)?"
+      days_of_week: "match(^((Mon|Tue|Wed|Thu|Fri|Sat|Sun)(-(Mon|Tue|Wed|Thu|Fri|Sat|Sun))?(,(Mon|Tue|Wed|Thu|Fri|Sat|Sun)(-(Mon|Tue|Wed|Thu|Fri|Sat|Sun))?)*)$)?"
+  ical_calendars:
+    - name: str
+      source: "match(^(https?://)?.+$)?"
   churchtools:
     url: url
     username: email
@@ -40,7 +56,7 @@ schema:
       cold: "float(0.0,25.0)?"
       warm: "float(0.0,25.0)?"
       earlystart: "match(^([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$)?"
-      resources:
+      calendar_names:
         - str
 startup: services
 ports:

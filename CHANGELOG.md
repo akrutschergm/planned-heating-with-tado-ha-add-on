@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.0
+
+- Changed: BREAKING! config elements assignments//resources has been renamed into assignments//calendar_names
+- Added fixed schedules
+- Added iCal support for files and URLs
+
 ## 0.4.4
 
 - Fixed not having integrated both fixes
